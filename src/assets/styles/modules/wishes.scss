@@ -1,0 +1,131 @@
+.wl-main-panel {
+  width: 100%;
+  display: flex;
+  float: left;
+}
+
+.wl-wishes {
+  flex: 0 0 70%;
+  background-color: $color-2;
+  padding: 2.2em 3em 0;
+  min-height: 400px;
+}
+
+/* ----------------------------------------
+ *  WISH INPUT
+ * ----------------------------------------
+ */
+
+.wl-btn {
+  border: none;
+  background: transparent;
+}
+
+.wl-new-wish__toggle {
+  margin-bottom: 1em;
+}
+
+.wl-toggle-icon, .wl-clear-icon {
+  color: $color-3;
+  cursor: pointer;
+  vertical-align: sub;
+}
+
+.icon-plus {
+  font-size: 1.05rem;
+}
+
+.wl-new-wish__menu {
+  margin-top: -.8em;
+}
+
+.wl-new-wish__menu input {
+  background-color: $color-2;
+  border: 0;
+  color: $color-1;
+}
+
+.wl-new-wish__menu label {
+  font-weight: normal;
+}
+
+.wl-new-wish__menu small {
+  color: $color-3;
+  margin-left: .8em;
+}
+/* ----------------------------------------
+ *  WISHLIST
+ * ----------------------------------------
+ */
+
+.wishlist {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  list-style-type: none;
+}
+
+.wl-item-wrapper {
+  flex: 0 0 30%;
+  min-width: 270px;
+  position: relative;
+  height: 50px;
+  padding-top: .15em;
+  background: $color-4;
+  margin: 1em auto;
+}
+
+.wl-item-menu {
+  display: inline-block;
+  width: 24px;
+  height: inherit;
+  background: $color-5;
+  margin-right: 1em;
+  margin-top: -.15em;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.wl-item-menu > a:hover {
+  text-decoration: none;
+}
+
+.wl-item-menu button {
+  display: block;
+    &:hover {color: $color-3;}
+}
+
+.icon-item-menu {
+  font-size: 1.6rem;
+  color: $color-6;
+  line-height: 2.2;
+}
+
+.wl-item {
+  display: inline;
+}
+.wl-item > span:first-child {
+  margin-right: .8em;
+  font-size: .85rem;
+}
+
+.wl-item .icon-goods,
+.wl-item .icon-trips,
+.wl-item .icon-bonus,
+.wl-item .icon-mates {
+  position: absolute;
+  right: 15px;
+  top: .83em;
+  color: $color-3;
+}
+
+.wl-item-save {
+  position: absolute;
+  background: $color-5;
+  border: 0 none;
+  height: 30px;
+  left: 82%;
+  top: -35px;
+  width: 50px;
+    &:hover {background: $color-7;}
+}

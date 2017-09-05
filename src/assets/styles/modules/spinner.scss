@@ -1,0 +1,39 @@
+.center-fix {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.main-spinner {
+  font-size: 3em;
+  color: $color-3;
+}
+
+.icon-spinner {
+  display: inline-block;
+  text-rendering: auto;
+  animation: wl-spin 2s infinite linear;
+}
+
+@-webkit-keyframes wl-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+@keyframes wl-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}

@@ -1,0 +1,94 @@
+
+<template>
+  <ul class="wishlist">
+    <li v-for="(wish, index) in filteredWishes" :key="wish.id" class="wl-item-wrapper">
+      <button v-if="wish._id === updateWish._id" class="wl-item-save" @click="onUpdate(wish)">Save</button>
+      <div class="wl-item-menu dropdown">
+        <a class="dropdown-toggle" :id="'dropdownMenu-' + index" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" @click="toggleDropdown(index)">
+          <i class="icon-item-menu"></i>
+        </a>
+        <nav class="dropdown-menu dropdown-menu-animated" :class="{open : index === updateIndex && updating}" aria-labelledby="'dropdownMenu-' + index">
+          <button class="dropdown-item wl-btn" @click="onEdit(wish)">Edit</button>
+          <button class="dropdown-item wl-btn" @click="onRemove(wish)">Delete</button>
+          <button class="dropdown-item wl-btn" @click="onUnlock(wish)">Unlock</button>
+          <button class="dropdown-item wl-btn" @click="onMakeAlpha(wish)">Make Alpha</button>
+        </nav>
+      </div>
+      <div class="wl-item">
+        <span v-if="wish._id === updateWish._id">
+          <select class="form-control" required v-model="newWish.category" style="display: inline; width: 70px; padding: .3em;">
+            <option v-for="category in categories" :value="category">{{category}}</option>
+          </select>
+        </span>
+        <span v-else>{{wish.date | timeFormat}}</span>
+
+        <span v-if="wish._id === updateWish._id"><input required v-model="newWish.name" style="display: inline; width: 100px; padding: .3em;"/></span>
+        <span v-else>{{wish.name | capitalize}}</span>
+
+        <i v-if="wish._id === updateWish._id" :class="'icon-' + newWish.category"></i>
+        <i v-else :class="'icon-' + wish.category"></i>
+      </div>
+    </li>
+  </ul>
+</template>
+
+<script>
+
+import moment from 'moment';
+
+const fWishes = (wishes) => wishes.filter((wish) => wish.isAlpha === false && wish.isUnlocked === false);
+
+const filters = (filter, wishes) => (filter === 'all') ? wishes : wishes.filter((wish) => wish.category === filter);
+
+export default {
+  data() {
+    return {
+      updateWish: {},
+      newWish: {}, // clone wish to update it without Veux errors
+      updating: false,
+      updateIndex: null,
+      categories: ['goods', 'trips', 'mates', 'bonus']
+    }
+  },
+  computed: {
+    filterBy() {
+      return this.$store.getters.category;
+    },
+    filteredWishes() {
+      return filters(this.filterBy, fWishes(this.$store.getters.wishes));
+    }
+  },
+  methods: {
+    toggleDropdown(i) {
+      if (i !== this.updateIndex) { // reset if another item clicked when dropdown is open
+        this.updating = false;
+      }
+      this.updateIndex = i;
+      this.updating = !this.updating;
+    },
+    onEdit(wish) {
+      this.updateWish = wish;
+      this.updating = false;
+      // this.newWish = JSON.parse(JSON.stringify(wish)); // clone wish to update it without Veux errors
+      this.newWish = Object.assign({}, wish); // TODO: see README
+    },
+    onUpdate(wish) {
+      this.newWish.date = moment().format('YYYY-MM-DD');
+      this.$store.dispatch('updateWish', this.newWish);
+      this.updateWish = {};
+    },
+    onRemove(wish) {
+      this.$store.dispatch('removeWish', wish);
+      this.updating = false;
+    },
+    onUnlock(wish) {
+      this.$store.dispatch('unlockWish', wish);
+      this.updating = false;
+    },
+    onMakeAlpha(wish) {
+      this.$store.dispatch('makeAlphaWish', wish);
+      this.updating = false;
+    }
+  }
+}
+</script>

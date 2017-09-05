@@ -1,0 +1,49 @@
+.wl-quote {
+  position: relative;
+  top: 2.5em;
+  left: 2em;
+  background-color: rgba($color-4, .65);
+  padding: .7em 1em;
+  cursor: pointer;
+}
+
+.wl-quote-animated {
+  animation-name: puffIn;
+  animation-duration: 800ms;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes puffIn {
+  0% {
+    opacity: 0;
+    -webkit-transform-origin: 50% 50%;
+    -webkit-transform: scale(2,2);
+    -webkit-filter: blur(2px);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform-origin: 50% 50%;
+    -webkit-transform: scale(1,1);
+    -webkit-filter: blur(0px);
+  }
+}
+@keyframes puffIn {
+  0% {
+    opacity: 0;
+    transform-origin: 50% 50%;
+    transform: scale(2,2);
+    filter: blur(2px);
+  }
+
+  100% {
+    opacity: 1;
+    transform-origin: 50% 50%;
+    transform: scale(1,1);
+    filter: blur(0px);
+  }
+}
+
+@media screen and (max-width: $mq-medium) {
+  .wl-quote {display: none;}
+}

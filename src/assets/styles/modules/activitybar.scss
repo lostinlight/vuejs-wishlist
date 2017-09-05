@@ -1,0 +1,108 @@
+.wl-activity-bar {
+  position: absolute;
+  right: 0;
+  top: 100px;
+  width: 220px;
+  height: 52vh;
+  background-color: $color-8;
+  color: $color-1;
+  overflow-y: auto;
+}
+
+.wl-username {
+  height: 40px;
+  line-height: 40px;
+  background-color: $color-4;
+  cursor: pointer;
+}
+
+.wl-username .dropdown-menu {
+  width: 100%;
+  transform: none;
+  top: 40px;
+  left: 0;
+  opacity: .9;
+}
+
+.wl-username,
+.wl-avatar,
+.wl-activity__title {
+  text-align: center;
+}
+
+.wl-avatar {
+  margin-top: 1.4em;
+  height: 70px;
+}
+
+.wl-username i {
+  vertical-align: middle;
+}
+
+.wl-activity {
+  padding: .5em .6em .5em 2em;
+}
+
+.wl-activity__title {
+  font-family: $font-secondary;
+  margin: .5em 0 .5em;
+}
+
+.wl-activity time {
+  color: $color-9;
+}
+
+.wl-activity li {
+  position: relative;
+  line-height: 1.5;
+}
+
+.wl-activity li:before {
+  content: "";
+  height: 9px;
+  width: 9px;
+  background: $color-3;
+  border-radius: 50%;
+  box-shadow: 0 1px 8px 0 rgba($color-3, .6);
+  left: 0;
+  top: .4em;
+  position: absolute;
+}
+
+.wl-activity li:after {
+  background-color: rgb(203, 203, 203);
+  content: "";
+  height: 100%;
+  left: .3em;
+  position: absolute;
+  top: 1em;
+  width: 1px;
+}
+
+.wl-activity li:before,
+.wl-activity li:after {
+  display: none;
+}
+
+.wl-activity li:last-child:after {
+  display: none;
+}
+
+.wl-activity__wish {
+  margin: 0 0 7px;
+  font-size: .9rem;
+}
+
+@media screen and (min-width: $mq-small) {
+  .wl-activity-bar {width: 200px;}
+}
+
+@media screen and (min-width: $mq-medium) {
+  .wl-activity-bar {top: 0;}
+  .wl-activity li {padding-left: 1.5em;}
+  .wl-activity li:after, .wl-activity li:before {display: inherit;}
+}
+
+@media screen and (min-width: $mq-large) {
+  .wl-activity-bar {width: 17%;}
+}

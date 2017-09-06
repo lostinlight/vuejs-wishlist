@@ -18,7 +18,7 @@ __Let me know in issues, if there's something to improve (current best practices
 ### TODO
 - [ ] tests
 - [ ] replace window alert with html popup
-- [ ] polyfill Object.assign() for IE
+- [x] polyfill Object.assign() for IE
 
 ### Build Setup
 

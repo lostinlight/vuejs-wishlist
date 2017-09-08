@@ -1,3 +1,4 @@
+![open source for the win](https://kodeguild.com/shared/OpenSource4theWin.svg)
 
 ## Vue.js Wishlist
 

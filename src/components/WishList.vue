@@ -35,7 +35,7 @@
 <script>
 
 import moment from 'moment';
-import {assign} from 'es6-object-assign'; // IE polyfill
+import objectAssign from 'object-assign'; // IE ponyfill
 
 const fWishes = (wishes) => wishes.filter((wish) => wish.isAlpha === false && wish.isUnlocked === false);
 
@@ -70,7 +70,7 @@ export default {
     onEdit(wish) {
       this.updateWish = wish;
       this.updating = false;
-      this.newWish = assign({}, wish); // Object.assign ponyfill github.com/rubennorte/es6-object-assign
+      this.newWish = objectAssign({}, wish); // Object.assign ponyfill github.com/sindresorhus/object-assign
     },
     onUpdate(wish) {
       this.newWish.date = moment().format('YYYY-MM-DD');

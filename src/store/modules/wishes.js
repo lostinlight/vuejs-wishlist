@@ -4,7 +4,8 @@ import wishes from '../../data/wishes';
 
 const state = {
   wishes: [],
-  category: 'all'
+  category: 'all',
+  openModal: false
 };
 
 const getters = {
@@ -13,6 +14,9 @@ const getters = {
   },
   category: state => {
     return state.category;
+  },
+  openModal: state => {
+    return state.openModal;
   }
 };
 
@@ -45,19 +49,15 @@ const mutations = {
     state.wishes.splice(whichIndex(wish), 1, achievement);
   },
   'MAKE_ALPHA' (state, wish) {
-    const alphas = state.wishes.filter((wish) => wish.isAlpha === true);
-    const checkAlphas = alphas.length;
-
-    if (checkAlphas >= 4) {
-      window.alert( // TODO: see README
-        `Currently you already have 4 Alpha wishes. This is the maximum ammount.
-
-        Please, achieve one of them, mark it as unlocked. Then add new Alpha wish`);
-    } else {
-      const alphaWish = state.wishes[whichIndex(wish)];
-      alphaWish.isAlpha = true;
-      state.wishes.splice(whichIndex(wish), 1, alphaWish);
-    }
+    const alphaWish = state.wishes[whichIndex(wish)];
+    alphaWish.isAlpha = true;
+    state.wishes.splice(whichIndex(wish), 1, alphaWish);
+  },
+  'OPEN_MODAL' (state) {
+    state.openModal = true;
+  },
+  'CLOSE_MODAL' (state) {
+    state.openModal = false;
   }
 };
 
@@ -82,6 +82,12 @@ const actions = {
   },
   makeAlphaWish: ({commit, state}, wish) => {
     commit('MAKE_ALPHA', wish);
+  },
+  openModal: ({commit, state}) => {
+    commit('OPEN_MODAL');
+  },
+  closeModal: ({commit, state}) => {
+    commit('CLOSE_MODAL');
   }
 };
 

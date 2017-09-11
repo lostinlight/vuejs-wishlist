@@ -51,6 +51,13 @@ const fWishes = (wishes) => wishes.filter((wish) => wish.isAlpha === false && wi
 const filters = (filter, wishes) => (filter === 'all') ? wishes : wishes.filter((wish) => wish.category === filter);
 
 export default {
+  mounted() {
+    document.addEventListener('keydown', (e) => {
+      if (this.openModal && e.keyCode === 27) {
+        this.modalClose();
+      }
+    });
+  },
   data() {
     return {
       updateWish: {},

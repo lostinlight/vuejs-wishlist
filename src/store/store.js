@@ -1,4 +1,5 @@
 
+import 'es6-promise/auto'; // ponyfill maybe ? https://github.com/floatdrop/pinkie-promise
 import Vue from 'vue';
 import Vuex from 'vuex';
 

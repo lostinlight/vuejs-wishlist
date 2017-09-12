@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
       quotes: ['Impossible becomes possible when you want it bad enough', 'It takes as much energy to wish as it does to plan', 'Never stop believing that your dreams are eternal', 'Life is too short to be wishing for things that have been proven by many to be achievable'],
       quoteNum: 0,

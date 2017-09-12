@@ -45,3 +45,9 @@ npm run e2e
 # run all tests
 npm test
 ```
+
+### Tests
+
+On Linux, you might need to set $CHROME_BIN variable in your system
+
+`echo 'export CHROME_BIN="/usr/bin/chromium-browser"' >> ~/.bashrc && source ~/.bashrc`

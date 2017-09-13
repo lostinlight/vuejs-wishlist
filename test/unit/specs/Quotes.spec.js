@@ -1,12 +1,11 @@
 
-import Vue from 'vue';
+import { mount } from 'avoriaz' // ? vue-test-utils
 import Quotes from '@/components/Quotes';
 
 describe('Quotes.vue', () => {
   it('renders correct data', () => {
-    const Constructor = Vue.extend(Quotes);
-    const QuotesComponent = new Constructor().$mount();
-    expect(QuotesComponent.$el.textContent)
+    const QuotesComponent = mount(Quotes);
+    expect(QuotesComponent.text())
       .to.contain('Impossible becomes possible when you want it bad enough')
   })
 })

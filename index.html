@@ -7,9 +7,93 @@
     <link rel="author" href="https://github.com/lostinlight">
     <meta name="description" content="Vue.js-2 Vuex example">
     <title>Vue.js-2 Wishlist</title>
+    <style>
+
+      body {
+        background-color: #6f66ec;
+      }
+
+      .spinner {
+        position: absolute;
+        top:  40%;
+        left:  50%;
+        transform: translate(-50%, -40%);
+      }
+
+      /* https://github.com/tobiasahlin/SpinKit */
+      .chasing-dots {
+        margin: 40px auto;
+        width: 40px;
+        height: 40px;
+        position: relative;
+        text-align: center;
+        -webkit-animation: chasingDotsRotate 2s infinite linear;
+                animation: chasingDotsRotate 2s infinite linear;
+      }
+
+      .chasing-dots .child {
+        width: 60%;
+        height: 60%;
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        background-color: #ede972;
+        border-radius: 100%;
+        -webkit-animation: chasingDotsBounce 2s infinite ease-in-out;
+                animation: chasingDotsBounce 2s infinite ease-in-out;
+      }
+
+      .chasing-dots .dot2 {
+        top: auto;
+        bottom: 0;
+        -webkit-animation-delay: -1s;
+                animation-delay: -1s;
+      }
+
+      @-webkit-keyframes chasingDotsRotate {
+        100% {
+          -webkit-transform: rotate(360deg);
+                  transform: rotate(360deg); }
+      }
+
+      @keyframes chasingDotsRotate {
+        100% {
+          -webkit-transform: rotate(360deg);
+                  transform: rotate(360deg); }
+      }
+
+      @-webkit-keyframes chasingDotsBounce {
+        0%, 100% {
+          -webkit-transform: scale(0);
+                  transform: scale(0); }
+        50% {
+          -webkit-transform: scale(1);
+                  transform: scale(1); }
+      }
+
+      @keyframes chasingDotsBounce {
+        0%, 100% {
+          -webkit-transform: scale(0);
+                  transform: scale(0); }
+        50% {
+          -webkit-transform: scale(1);
+          transform: scale(1); }
+      }
+
+    </style>
   </head>
   <body>
-    <div id="app"></div>
+
+    <div id="app">
+      <section class="spinner">
+        <div class="chasing-dots">
+          <div class="child dot1"></div>
+          <div class="child dot2"></div>
+        </div>
+        <p style="text-align: center; color: #fff;">Loading... (please, enable Javascript)</p>
+      </section>
+    </div>
+
     <!-- built files will be auto injected -->
   </body>
 </html>

@@ -7,7 +7,7 @@
       </a>
       <nav class="dropdown-menu dropdown-menu-animated" :class="{open : decentralize}" aria-labelledby="'dropdownMenu-' + index">
         <a href="https://diasporafoundation.org" rel="external noopener" class="dropdown-item wl-btn" target="_blank">Join diaspora*</a>
-        <a href="https://mnm.social" rel="external noopener" class="dropdown-item wl-btn" target="_blank">Join Mastodon</a>
+        <a href="https://joinmastodon.org" rel="external noopener" class="dropdown-item wl-btn" target="_blank">Join Mastodon</a>
       </nav>
     </div>
     <div class="wl-avatar"><img src="../assets/images/avatar.png"></div>

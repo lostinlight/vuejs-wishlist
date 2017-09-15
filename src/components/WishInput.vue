@@ -66,7 +66,7 @@ export default {
     onSubmit() {
       if (this.validateForm()) {
         this.newWish.date = moment().format('YYYY-MM-DD');
-        this.$store.dispatch('addWish', this.newWish);
+        this.$store.commit('ADD_WISH', this.newWish);
         this.newWish = {_id: '', name: '', date: '', category: '', isUnlocked: false, isAlpha: false, image: 'image-default'};
         this.adding = false;
       }

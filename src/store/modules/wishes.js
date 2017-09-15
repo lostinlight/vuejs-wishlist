@@ -26,7 +26,7 @@ const mutations = {
   'CHOOSE_CATEGORY' (state, category) {
     state.category = category;
   },
-  'FETCH_WISHES' (state, wishes) {
+  'FETCH_WISHES' (state) {
     state.wishes = wishes;
   },
   'ADD_WISH' (state, wish) {
@@ -61,39 +61,10 @@ const mutations = {
   }
 };
 
-const actions = {
-  chooseCategory: ({commit, state}, category) => {
-    commit('CHOOSE_CATEGORY', category);
-  },
-  fetchWishes: ({commit}) => {
-    commit('FETCH_WISHES', wishes);
-  },
-  addWish: ({commit, state}, wish) => {
-    commit('ADD_WISH', wish);
-  },
-  removeWish: ({commit, state}, wish) => {
-    commit('REMOVE_WISH', wish);
-  },
-  updateWish: ({commit, state}, wish) => {
-    commit('UPDATE_WISH', wish);
-  },
-  unlockWish: ({commit, state}, wish) => {
-    commit('UNLOCK_WISH', wish);
-  },
-  makeAlphaWish: ({commit, state}, wish) => {
-    commit('MAKE_ALPHA', wish);
-  },
-  openModal: ({commit, state}) => {
-    commit('OPEN_MODAL');
-  },
-  closeModal: ({commit, state}) => {
-    commit('CLOSE_MODAL');
-  }
-};
+// we don't need actions - in this simple demo data is static and no async operations are made
 
 export default {
   state,
   getters,
-  actions,
   mutations
 }

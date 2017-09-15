@@ -23,7 +23,7 @@ export default {
   methods: {
     filterByCategory(category) {
       this.chosen = category;
-      this.$store.dispatch('chooseCategory', category);
+      this.$store.commit('CHOOSE_CATEGORY', category);
     }
   }
 }

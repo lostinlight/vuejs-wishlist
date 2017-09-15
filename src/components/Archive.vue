@@ -20,7 +20,7 @@ export default {
   },
   methods: {
     clearWishes(wishes) {
-      wishes.forEach((wish) => this.$store.dispatch('removeWish', wish));
+      wishes.forEach((wish) => this.$store.commit('REMOVE_WISH', wish));
     }
   }
 }

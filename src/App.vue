@@ -40,7 +40,7 @@ export default {
     ActivityBar
   },
   created() {
-    this.$store.dispatch('fetchWishes');
+    this.$store.commit('FETCH_WISHES');
   }
 }
 </script>

@@ -93,15 +93,15 @@ export default {
     },
     onUpdate(wish) {
       this.newWish.date = moment().format('YYYY-MM-DD');
-      this.$store.dispatch('updateWish', this.newWish);
+      this.$store.commit('UPDATE_WISH', this.newWish);
       this.updateWish = {};
     },
     onRemove(wish) {
-      this.$store.dispatch('removeWish', wish);
+      this.$store.commit('REMOVE_WISH', wish);
       this.updating = false;
     },
     onUnlock(wish) {
-      this.$store.dispatch('unlockWish', wish);
+      this.$store.commit('UNLOCK_WISH', wish);
       this.updating = false;
     },
     onMakeAlpha(wish) {
@@ -110,15 +110,15 @@ export default {
       const checkAlphas = alphas.length;
 
       if (checkAlphas >= 4) {
-        this.$store.dispatch('openModal'); // alert about max ammount of alphas
+        this.$store.commit('OPEN_MODAL'); // alert about max ammount of alphas
       } else {
-        this.$store.dispatch('makeAlphaWish', wish);
+        this.$store.commit('MAKE_ALPHA', wish);
       }
 
       this.updating = false;
     },
     modalClose() {
-      this.$store.dispatch('closeModal');
+      this.$store.commit('CLOSE_MODAL');
     }
   }
 }

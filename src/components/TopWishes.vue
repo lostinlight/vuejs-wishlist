@@ -20,7 +20,7 @@ export default {
   },
   methods: {
     onUnlock(wish) {
-      this.$store.dispatch('unlockWish', wish);
+      this.$store.commit('UNLOCK_WISH', wish);
     },
     imagePath(w, i) {
       if (w[i] !== undefined) {

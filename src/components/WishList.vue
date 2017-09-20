@@ -47,9 +47,7 @@ import moment from 'moment';
 import objectAssign from 'object-assign'; // IE ponyfill
 import wHelpers from '@/mixins/wHelpers';
 
-// const fWishes = (wishes) => wishes.filter((wish) => wish.isAlpha === false && wish.isUnlocked === false);
-
-const groupBy = (filter, wishes) => (filter === 'all') ? wishes : wishes.filter((wish) => wish.category === filter);
+// const groupBy = (filter, wishes) => (filter === 'all') ? wishes : wishes.filter((wish) => wish.category === filter);
 
 export default {
   mixins: [
@@ -77,7 +75,7 @@ export default {
     },
     filteredWishes() {
       const allWishes = this.$store.getters.wishes;
-      return groupBy(this.category, this.fWishes(allWishes, {isAlpha: false, isUnlocked: false}));
+      return this.filterW(this.category, this.fWishes(allWishes, {isAlpha: false, isUnlocked: false}));
     },
     openModal() {
       return this.$store.getters.openModal;
@@ -124,6 +122,9 @@ export default {
     },
     modalClose() {
       this.$store.commit('CLOSE_MODAL');
+    },
+    filterW(filter, wishes) {
+      return (filter === 'all') ? wishes : wishes.filter((wish) => wish.category === filter);
     }
   }
 }

@@ -34,7 +34,7 @@ describe('Quotes.vue', () => {
     vm.$el.click();
     expect(vm.quoteAnim).to.equal(true);
 
-    vm.$nextTick(function() {
+    vm.$nextTick(() => {
       expect(vm.$el.className).to.contain('quoteAnim');
       setTimeout(() => {
         expect(vm.quoteAnim).to.equal(false);

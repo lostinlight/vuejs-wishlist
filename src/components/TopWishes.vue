@@ -11,11 +11,16 @@
 </template>
 
 <script>
+import wHelpers from '@/mixins/wHelpers';
+
 export default {
+  mixins: [
+    wHelpers
+  ],
   computed: {
     aWishes() { // alpha wishes
       const allWishes = this.$store.getters.wishes;
-      return allWishes.filter((wish) => wish.isAlpha === true);
+      return this.fWishes(allWishes, {isAlpha: true});
     }
   },
   methods: {

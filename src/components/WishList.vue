@@ -45,12 +45,16 @@
 
 import moment from 'moment';
 import objectAssign from 'object-assign'; // IE ponyfill
+import wHelpers from '@/mixins/wHelpers';
 
-const fWishes = (wishes) => wishes.filter((wish) => wish.isAlpha === false && wish.isUnlocked === false);
+// const fWishes = (wishes) => wishes.filter((wish) => wish.isAlpha === false && wish.isUnlocked === false);
 
-const filters = (filter, wishes) => (filter === 'all') ? wishes : wishes.filter((wish) => wish.category === filter);
+const groupBy = (filter, wishes) => (filter === 'all') ? wishes : wishes.filter((wish) => wish.category === filter);
 
 export default {
+  mixins: [
+    wHelpers
+  ],
   mounted() {
     document.addEventListener('keydown', (e) => {
       if (this.openModal && e.keyCode === 27) {
@@ -68,11 +72,12 @@ export default {
     }
   },
   computed: {
-    filterBy() {
+    category() {
       return this.$store.getters.category;
     },
     filteredWishes() {
-      return filters(this.filterBy, fWishes(this.$store.getters.wishes));
+      const allWishes = this.$store.getters.wishes;
+      return groupBy(this.category, this.fWishes(allWishes, {isAlpha: false, isUnlocked: false}));
     },
     openModal() {
       return this.$store.getters.openModal;

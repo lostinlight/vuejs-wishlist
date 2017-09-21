@@ -11,16 +11,13 @@
 </template>
 
 <script>
-import wHelpers from '@/mixins/wHelpers';
+import {fWishes} from '@/utils/utils';
 
 export default {
-  mixins: [
-    wHelpers
-  ],
   computed: {
     aWishes() { // alpha wishes
       const allWishes = this.$store.getters.wishes;
-      return this.fWishes(allWishes, {isAlpha: true});
+      return fWishes(allWishes, {isAlpha: true});
     }
   },
   methods: {

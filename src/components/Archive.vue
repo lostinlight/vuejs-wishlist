@@ -11,17 +11,17 @@
 </template>
 
 <script>
-import wHelpers from '@/mixins/wHelpers';
+import {capitalize, fWishes} from '@/utils/utils';
 
 export default {
-  mixins: [
-    wHelpers
-  ],
   computed: {
     uWishes() { // unlocked wishes
       const allWishes = this.$store.getters.wishes;
-      return this.fWishes(allWishes, {isUnlocked: true});
+      return fWishes(allWishes, {isUnlocked: true});
     }
+  },
+  filters: {
+    capitalize
   },
   methods: {
     clearWishes(wishes) {

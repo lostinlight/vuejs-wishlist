@@ -44,15 +44,10 @@
 <script>
 
 import moment from 'moment';
+import {timeFormat, capitalize, fWishes} from '@/utils/utils';
 import objectAssign from 'object-assign'; // IE ponyfill
-import wHelpers from '@/mixins/wHelpers';
-
-// const groupBy = (filter, wishes) => (filter === 'all') ? wishes : wishes.filter((wish) => wish.category === filter);
 
 export default {
-  mixins: [
-    wHelpers
-  ],
   mounted() {
     document.addEventListener('keydown', (e) => {
       if (this.openModal && e.keyCode === 27) {
@@ -75,11 +70,15 @@ export default {
     },
     filteredWishes() {
       const allWishes = this.$store.getters.wishes;
-      return this.filterW(this.category, this.fWishes(allWishes, {isAlpha: false, isUnlocked: false}));
+      return this.filterW(this.category, fWishes(allWishes, {isAlpha: false, isUnlocked: false}));
     },
     openModal() {
       return this.$store.getters.openModal;
     }
+  },
+  filters: {
+    timeFormat,
+    capitalize
   },
   methods: {
     toggleDropdown(i) {

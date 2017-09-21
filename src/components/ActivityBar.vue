@@ -24,6 +24,8 @@
 </template>
 
 <script>
+import {timeFormat, capitalize} from '@/utils/utils';
+
 export default {
   data() {
     return {
@@ -37,6 +39,10 @@ export default {
       const lStart = lEnd - 4;
       return allWishes.slice(lStart, lEnd);
     }
+  },
+  filters: {
+    timeFormat,
+    capitalize
   },
   methods: {
     toggleDropdown() {

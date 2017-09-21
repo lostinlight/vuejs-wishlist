@@ -5,7 +5,7 @@
       <li v-for="(wish, index) in filteredWishes" :key="wish.id" class="wl-item-wrapper">
         <button v-if="wish._id === updateWish._id" class="wl-item-save" @click="onUpdate(wish)">Save</button>
         <div class="wl-item-menu dropdown">
-          <a class="dropdown-toggle" :id="'dropdownMenu-' + index" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" @click="toggleDropdown(index)">
+          <a class="dropdown-toggle" :id="'dropdownMenu-' + index" aria-haspopup="true" aria-expanded="true" @click="toggleDropdown(index)">
             <i class="icon-item-menu"></i>
           </a>
           <nav class="dropdown-menu dropdown-menu-animated" :class="{open : index === updateIndex && updating}" aria-labelledby="'dropdownMenu-' + index">

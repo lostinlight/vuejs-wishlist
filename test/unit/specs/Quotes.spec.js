@@ -6,9 +6,11 @@ import Quotes from '@/components/Quotes';
 describe('Quotes.vue', () => {
   const Constructor = Vue.extend(Quotes);
   let vm;
+  let index;
 
   beforeEach(() => {
     vm = new Constructor().$mount();
+    index = vm.quoteNum;
   });
 
   afterEach(() => {
@@ -17,16 +19,16 @@ describe('Quotes.vue', () => {
   });
 
   it('renders correct quote', () => {
-    expect(vm.$el.textContent).to.contain('Impossible becomes possible when you want it bad enough')
+    expect(vm.$el.textContent).to.contain(vm.quotes[index]);
   })
 
   it('changes quote on click', () => {
     vm.$el.click();
     vm.$el.click();
-    expect(vm.quoteNum).to.equal(2);
 
     vm.$nextTick(function() {
-      expect(vm.$el.textContent).to.equal('Never stop believing that your dreams are eternal');
+      expect(index).to.equal(2);
+      expect(vm.$el.textContent).to.equal(vm.quotes[index]);
     })
   })
 
@@ -38,7 +40,7 @@ describe('Quotes.vue', () => {
       expect(vm.$el.className).to.contain('quoteAnim');
       setTimeout(() => {
         expect(vm.quoteAnim).to.equal(false);
-        expect(vm.$el.className).to.not.contain('quoteAnim');
+        expect(vm.$el.className).not.to.contain('quoteAnim');
       }, 600);
     })
   })

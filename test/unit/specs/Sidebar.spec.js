@@ -8,6 +8,9 @@ import Sidebar from '@/components/Sidebar';
 Vue.use(Vuex);
 
 describe('Sidebar.vue', () => {
+  const Constructor = Vue.extend(Sidebar);
+  let vm;
+
   const state = {
     category: 'all'
   };
@@ -28,13 +31,18 @@ describe('Sidebar.vue', () => {
     mutations
   });
 
-  const Constructor = Vue.extend(Sidebar);
-  const vm = new Constructor({
-    store
-  }).$mount();
+  beforeEach(() => {
+    vm = new Constructor({store}).$mount();
+  });
+
+  afterEach(() => {
+    vm.$destroy();
+    vm = null;
+  });
 
   it('renders five categories', () => {
     const defaultData = vm.categories;
+    expect(defaultData).to.be.an('array');
     expect(defaultData).to.have.lengthOf(5);
   })
 
@@ -42,7 +50,17 @@ describe('Sidebar.vue', () => {
     const button = vm.$el.querySelectorAll('button')[4];
     button.click();
 
-    expect(vm.chosen).to.equal('bonus');
-    expect(vm.$store.state.category).to.equal('bonus');
+    expect(vm.chosen).not.to.equal('all');
+    expect(vm.$store.state.category).to.not.equal('all');
+  })
+
+  it('adds active class on correct element', () => {
+    const li = vm.$el.querySelectorAll('li')[1];
+    const button = vm.$el.querySelectorAll('button')[1];
+    button.click();
+
+    vm.$nextTick(() => {
+      expect(li.className).to.contain('active');
+    })
   })
 })

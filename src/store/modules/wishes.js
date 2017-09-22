@@ -8,7 +8,7 @@ const state = {
   openModal: false
 };
 
-const getters = {
+export const getters = {
   wishes: state => {
     return state.wishes;
   },
@@ -22,7 +22,7 @@ const getters = {
 
 const whichIndex = (w) => state.wishes.indexOf(w);
 
-const mutations = {
+export const mutations = {
   'CHOOSE_CATEGORY' (state, category) {
     state.category = category;
   },

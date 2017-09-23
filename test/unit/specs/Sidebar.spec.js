@@ -2,7 +2,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import sinon from 'sinon';
-import { expect } from 'chai';
+import {expect} from 'chai';
 import Sidebar from '@/components/Sidebar';
 
 Vue.use(Vuex);
@@ -51,16 +51,17 @@ describe('Sidebar.vue', () => {
     button.click();
 
     expect(vm.chosen).not.to.equal('all');
-    expect(vm.$store.state.category).to.not.equal('all');
+    expect(vm.$store.state.category).not.to.equal('all');
   })
 
-  it('adds active class on correct element', () => {
+  it('adds active class on correct element', (done) => {
     const li = vm.$el.querySelectorAll('li')[1];
     const button = vm.$el.querySelectorAll('button')[1];
     button.click();
 
     vm.$nextTick(() => {
       expect(li.className).to.contain('active');
+      done();
     })
   })
 })

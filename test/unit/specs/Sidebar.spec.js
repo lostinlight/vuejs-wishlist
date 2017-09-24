@@ -1,7 +1,6 @@
 
 import Vue from 'vue';
 import Vuex from 'vuex';
-import sinon from 'sinon';
 import {expect} from 'chai';
 import Sidebar from '@/components/Sidebar';
 
@@ -15,10 +14,6 @@ describe('Sidebar.vue', () => {
     category: 'all'
   };
 
-  const actions = {
-    filterByCategory: sinon.stub()
-  };
-
   const mutations = {
     'CHOOSE_CATEGORY' (state, category) {
       state.category = category;
@@ -27,7 +22,6 @@ describe('Sidebar.vue', () => {
 
   const store = new Vuex.Store({
     state,
-    actions,
     mutations
   });
 

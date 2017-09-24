@@ -20,8 +20,6 @@ export const getters = {
   }
 };
 
-const whichIndex = (w) => state.wishes.indexOf(w);
-
 export const mutations = {
   'CHOOSE_CATEGORY' (state, category) {
     state.category = category;
@@ -40,18 +38,18 @@ export const mutations = {
     }
   },
   'REMOVE_WISH' (state, wish) {
-    state.wishes = [...state.wishes.slice(0, whichIndex(wish)), ...state.wishes.slice(whichIndex(wish) + 1)];
+    state.wishes.splice(state.wishes.indexOf(wish), 1);
   },
   'UNLOCK_WISH' (state, wish) {
-    const achievement = state.wishes[whichIndex(wish)];
+    const achievement = state.wishes[state.wishes.indexOf(wish)];
     achievement.isUnlocked = true;
     achievement.isAlpha = false; // reset alpha mode on achieved wishes
-    state.wishes.splice(whichIndex(wish), 1, achievement);
+    state.wishes.splice(state.wishes.indexOf(wish), 1, achievement);
   },
   'MAKE_ALPHA' (state, wish) {
-    const alphaWish = state.wishes[whichIndex(wish)];
+    const alphaWish = state.wishes[state.wishes.indexOf(wish)];
     alphaWish.isAlpha = true;
-    state.wishes.splice(whichIndex(wish), 1, alphaWish);
+    state.wishes.splice(state.wishes.indexOf(wish), 1, alphaWish);
   },
   'OPEN_MODAL' (state) {
     state.openModal = true;

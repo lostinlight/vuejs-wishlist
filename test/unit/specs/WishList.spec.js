@@ -46,6 +46,20 @@ describe('WishList.vue', () => {
     vm = null;
   });
 
+  describe('WishList computed properties', () => {
+    it('category() returns current wish category', () => {
+      expect(vm.category).to.equal('all');
+    })
+
+    it('filteredWishes() returns wishes where isAlpha && isUnlocked === false', () => {
+      expect(vm.filteredWishes.length).to.equal(2);
+    })
+
+    it('openModal() returns current modal state', () => {
+      expect(vm.openModal).to.equal(false);
+    })
+  })
+
   describe('WishList methods', () => {
     it('toggleDropdown() toggles menus of wish items', (done) => {
       const nav = vm.$el.querySelectorAll('nav')[1];

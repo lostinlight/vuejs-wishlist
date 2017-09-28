@@ -33,7 +33,7 @@ export default {
     }
   },
   filters: {
-    uppercase: function (n) {
+    uppercase: function(n) {
       return n.toUpperCase();
     }
   }

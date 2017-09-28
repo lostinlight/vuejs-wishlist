@@ -14,7 +14,7 @@ Live Demo → [deployed to Surge](https://curved-wilderness.surge.sh)
 
 ![preview screen](preview.jpg?raw=true)
 
-__Let me know in issues, if there's something to improve (current best practices, etc)__
+__Please, let me know in issues if there's something to improve.__
 
 ### TODO
 - [ ] tests

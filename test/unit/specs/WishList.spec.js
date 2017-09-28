@@ -189,6 +189,3 @@ describe('WishList.vue', () => {
     })
   })
 })
-
-// remove App.spec and WishList spec
-// git commit -m 'remove redundant store and test lines'

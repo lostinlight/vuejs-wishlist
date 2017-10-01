@@ -27,7 +27,7 @@ __Please, let me know in issues if there's something to improve.__
 # install dependencies
 npm install
 
-# serve with hot reload at localhost:8080
+# serve with hot reload at localhost:1336
 npm run dev
 
 # build for production with minification

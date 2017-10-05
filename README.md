@@ -17,7 +17,7 @@ Live Demo → [deployed to Surge](https://curved-wilderness.surge.sh)
 __Please, let me know in issues if there's something to improve.__
 
 ### TODO
-- [ ] tests
+- [x] tests
 - [x] replace window alert with html modal
 - [x] polyfill Object.assign() for IE
 

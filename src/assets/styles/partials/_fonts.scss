@@ -1,3 +1,4 @@
+
 $font-primary: "din_regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
 $font-secondary: "din_medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
@@ -5,35 +6,26 @@ $font-secondary: "din_medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 @font-face {
   font-family: 'din_medium';
-  src: url('../fonts/DIN/din_medium.eot');
-  src: url('../fonts/DIN/din_medium.eot?#iefix') format('embedded-opentype'),
-       url('../fonts/DIN/din_medium.woff2') format('woff2'),
+  src: url('../fonts/DIN/din_medium.woff2') format('woff2'),
        url('../fonts/DIN/din_medium.woff') format('woff'),
-       url('../fonts/DIN/din_medium.ttf') format('truetype'),
-       url('../fonts/DIN/din_medium.svg#dinmedium') format('svg');
+       url('../fonts/DIN/din_medium.eot');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'din_regular';
-  src: url('../fonts/DIN/din.eot');
-  src: url('../fonts/DIN/din.eot?#iefix') format('embedded-opentype'),
-       url('../fonts/DIN/din.woff2') format('woff2'),
+  src: url('../fonts/DIN/din.woff2') format('woff2'),
        url('../fonts/DIN/din.woff') format('woff'),
-       url('../fonts/DIN/din.ttf') format('truetype'),
-       url('../fonts/DIN/din.svg#dinregular') format('svg');
+       url('../fonts/DIN/din.eot');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "wishlist";
-  src:url("../fonts/wishlist/wishlist.eot");
-  src:url("../fonts/wishlist/wishlist.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/wishlist/wishlist.woff") format("woff"),
-    url("../fonts/wishlist/wishlist.ttf") format("truetype"),
-    url("../fonts/wishlist/wishlist.svg#wishlist") format("svg");
+  src: url("../fonts/wishlist/wishlist.woff") format("woff"),
+       url("../fonts/wishlist/wishlist.eot");
   font-weight: normal;
   font-style: normal;
 }

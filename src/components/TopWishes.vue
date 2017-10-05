@@ -2,7 +2,7 @@
 <template>
   <section class="wl-top-wishes" id="wl-top-wishes">
     <div v-for="(n, index) in 4" class="wl-wish-wrapper">
-      <div class="wl-top-wish" :style="{ 'background': '#7775ea url(' + imagePath(aWishes, index) + ') top left no-repeat' }">
+      <div class="wl-top-wish" :class="'top-wish-' + index" :style="{ 'background': '#7775ea url(' + imagePath(aWishes, index) + ') top left no-repeat' }">
         <span class="wl-top-title">{{aWishes[index] != undefined ? aWishes[index].name : 'empty Alpha wish' | uppercase}}</span>
         <span v-if="aWishes[index] != undefined" class="wl-btn" @click="onUnlock(aWishes[index])" title="Unlock wish"><i class="icon-check"></i></span>
       </div>

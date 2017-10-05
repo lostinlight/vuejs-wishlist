@@ -2,7 +2,7 @@
 <template>
   <section>
     <ul class="wishlist">
-      <li v-for="(wish, index) in filteredWishes" :key="wish.id" class="wl-item-wrapper">
+      <li v-for="(wish, index) in filteredWishes" :key="wish.id" class="wl-item-wrapper" :class="'wish-' + index">
         <button v-if="wish._id === updateWish._id" class="wl-item-save" @click="onUpdate(wish)">Save</button>
         <div class="wl-item-menu dropdown">
           <a class="dropdown-toggle" :id="'dropdownMenu-' + index" aria-haspopup="true" aria-expanded="true" @click="toggleDropdown(index)">

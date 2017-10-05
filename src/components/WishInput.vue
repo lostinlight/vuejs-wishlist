@@ -10,11 +10,11 @@
       <form>
         <div class="form-group">
           <label for="name">Name</label> <small>{{formErrors.name}}</small>
-          <input type="text" class="form-control" placeholder="wish something" maxlength="15" required v-model="newWish.name">
+          <input type="text" class="form-control" id="new-wishName" placeholder="wish something" maxlength="15" required v-model="newWish.name">
         </div>
         <div class="form-group">
           <label for="category">Category</label> <small>{{formErrors.category}}</small>
-          <select class="form-control" required v-model="newWish.category">
+          <select class="form-control" id="new-wishType" required v-model="newWish.category">
             <option disabled value="">Select category</option>
             <option v-for="category in categories" :value="category">{{category}}</option>
           </select>

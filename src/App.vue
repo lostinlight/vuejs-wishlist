@@ -20,6 +20,8 @@
   </div>
 </template>
 
+<style src="./assets/styles/main.scss" lang="scss"></style>
+
 <script>
 import Quotes from './components/Quotes';
 import WishList from './components/WishList';
